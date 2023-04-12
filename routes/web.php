@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Маршрут для страницы товара
+Route::get('/products/{code}', [ProductController::class, 'show'])->name('product.show');
+
+// Маршрут для страницы категории
+Route::get('/category/{code}', [CategoryController::class, 'show'])->name('category.show');
